@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
+:root {
+  /* fonts */
+  /* card, general, explore heading, logo */
+  --font-card: "Work Sans";
+  --font-gen: Inter;
+  --font-head: "Playfair Display";
+  --font-logo: Pacifico;
+
+  /* sizes */
+  --font-size-gen: 18px;
+  --font-size-logo: 30px;
+
+  /* Colors */
+  /* navbar/footer, logofront, logoback */ 
+  --color-accent: #611111;
+  --color-primary: #ff7a00;
+  --color-secondary: #ffae00;
+  --color-tertiary: #ffedbd;
+  --color-logo: #FCC419;
+  
+  /* Gaps */
+  --gap-logos: 15px;
+}
+
+/* Applies to all pages */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, "Work Sans", "Playfair Display", Pacifico;
+  font-size: var(--font-size-gen);
+}
