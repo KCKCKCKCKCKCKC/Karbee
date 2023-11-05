@@ -6,10 +6,10 @@
 :root {
   /* fonts */
   /* card, general, explore heading, logo */
-  --font-card: "Work Sans";
-  --font-gen: Inter;
-  --font-head: "Playfair Display";
-  --font-logo: Pacifico;
+  --font-worksans: "Work Sans";
+  --font-inter: Inter;
+  --font-playfair: "Playfair Display";
+  --font-pacifico: Pacifico;
 
   /* sizes */
   --font-size-gen: 18px;
@@ -24,7 +24,12 @@
   --color-logo: #FCC419;
   
   /* Gaps */
+  --gap-close: 5px;
   --gap-logos: 15px;
+
+  /* Margins */
+  --margin-gen: 80px;
+  --margin-resized: 20px;
 }
 
 /* Applies to all pages */

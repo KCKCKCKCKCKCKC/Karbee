@@ -3,19 +3,19 @@ import { createTheme } from "@mantine/core";
 export const defaultTheme = createTheme({
         colors: {
             /* 
-            0: dark orange
-            1: light orange
-            2: beige
-            3: maroon
+            0: dark orange primary
+            1: light orange secondary
+            2: beige tertiary
+            3: maroon accent
             */
             brand: [
                 "#ff7a00", //0
                 "#ffae00", //1
                 "#ffedbd", //2
-                "#360202", //3
-                "#FF9F1C", //4
+                "#611111", //3
+                "#611111", //4
                 "#E58F19", //5
-                "#BC7E29", //6
+                "#611111", //6 primary
                 "#9C6F32", //7
                 "#836337", //8
                 "#6F5838", //9

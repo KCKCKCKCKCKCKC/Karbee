@@ -1,0 +1,12 @@
+.home {
+    margin: 0px var(--margin-gen);
+}
+
+.banner {
+    margin: 40px 0px;
+}
+
+/* Sizing down windows */
+@media (max-width: 700px) {
+    main.home { margin: 0px var(--margin-resized); }
+  }

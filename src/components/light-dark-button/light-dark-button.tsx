@@ -10,9 +10,10 @@ function LightDarkButton() {
   return (
     <ActionIcon
       onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
-      variant="default"
-      size="xl"
-      aria-label="Toggle color scheme"
+      variant="gradient"
+      size="lg"
+      aria-label="Toggle Light Dark"
+      gradient={{ from: 'rgba(255, 85, 0, 1)', to: 'yellow', deg: 174 }}
     >
       <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
       <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />

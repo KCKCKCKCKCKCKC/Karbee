@@ -1,9 +1,6 @@
 .navbar {
   height: rem(56px);
   background-color: var( --color-primary);
-  border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-  padding-left: var(--mantine-spacing-md);
-  padding-right: var(--mantine-spacing-md);
 }
 
 .inner {
@@ -11,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0px var(--margin-gen);
 }
 
 .link {
@@ -30,7 +28,7 @@
 }
 
 .logoText {
-  font-family: var(--font-logo);
+  font-family: var(--font-pacifico);
   font-size: var(--font-size-logo);
   padding-top: 5px;
   text-shadow: -2px 1.1px var(--color-accent);
@@ -44,4 +42,9 @@
 .logoText:after {
   content: 'bee';
   color: var(--color-logo);
+}
+
+/* Sizing down windows */
+@media (max-width: 700px) {
+  div.inner { margin: 0px var(--margin-resized); }
 }

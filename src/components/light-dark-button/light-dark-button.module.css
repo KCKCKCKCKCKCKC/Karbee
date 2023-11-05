@@ -1,6 +1,7 @@
 .icon {
-    width: rem(22px);
-    height: rem(22px);
+    width: rem(28px);
+    height: rem(28px);
+    color: var(--color-accent);
   }
   
   .dark {

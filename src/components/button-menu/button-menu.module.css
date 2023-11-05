@@ -1,0 +1,6 @@
+.button {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    font-family: var(--font-playfair);
+    font-size: var(--font-size-gen);
+}

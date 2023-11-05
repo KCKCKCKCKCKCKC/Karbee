@@ -1,5 +1,6 @@
 import Navbar from '../components/navbar/navbar';
-import LightDarkButton from '../components/light-dark-button/light-dark-button';
+import Banner from '../components/banner/banner';
+import styles from './home/home.module.css';
 import Head from 'next/head';
  
 /* Entry point for app. Homepage */
@@ -11,9 +12,11 @@ export default function Home() {
         <title>Karbee</title>
       </Head>
       <Navbar />
-      <main>
-        <h1>Hello World</h1>
-        <LightDarkButton />
+      <main className={styles.home}>
+        <div className={styles.banner}>
+          <Banner />
+        </div>
+        <h1>Explore</h1>
       </main>
     </>
   );

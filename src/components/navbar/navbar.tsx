@@ -1,29 +1,27 @@
-import { TextInput, Group, Burger, rem, Image, Text, Tooltip, Avatar, Menu, Button } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { FaSearch } from 'react-icons/fa';
+import { TextInput, Group, rem, Image, Text, Tooltip, Avatar, Menu } from '@mantine/core';
+import { FaSearch, FaHamburger } from 'react-icons/fa';
 import styles from './navbar.module.css';
 import { ActionIcon } from '@mantine/core';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { BiSolidBell } from 'react-icons/bi';
 import { MdMail } from 'react-icons/md';
-import { IconExternalLink } from '@tabler/icons-react';
+import ButtonMenu from '../button-menu/button-menu';
+import LightDarkButton from '../light-dark-button/light-dark-button';
 
 export function Navbar() {
   //const theme = useMantineTheme();
-  const [opened, { toggle }] = useDisclosure(false);
 
   return (
     <header className={styles.navbar}>
     <div className={styles.inner}>
       <Group>
-        <Burger opened={opened} onClick={toggle} size="sm" hiddenFrom="md" />
         <Image
           src="Karbee Logo.svg"
           alt="Karbee Logo" 
           width={50}
           height={48}
         />
-        <Text className={styles.logoText} visibleFrom="xs" />
+        <Text className={styles.logoText} visibleFrom="sm"/>
       </Group>
 
       <Group>
@@ -38,14 +36,33 @@ export function Navbar() {
               },
             }}
           />
-        <Group ml={"var(--gap-logos)"} gap={"var(--gap-logos)"} className={styles.links} visibleFrom="md">
+          <Menu shadow="md" width={200}>
+            <Menu.Target>
+              <ActionIcon
+                hiddenFrom='lg'
+                variant="filled"
+                size="xl"
+                color="var(--color-primary)"
+                aria-label="Menu"
+                >
+                <FaHamburger size="35px" color="var(--color-accent)" />
+              </ActionIcon>
+            </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Label>Profile</Menu.Label>
+                <Menu.Item>
+                  Settings
+                </Menu.Item>
+              </Menu.Dropdown>
+          </Menu>
+        <Group ml={"var(--gap-logos)"} gap={"var(--gap-logos)"} className={styles.links} visibleFrom="lg">
           <Tooltip label="Bookmarks">
             <ActionIcon
                 variant="gradient"
                 size="lg"
                 aria-label="Gradient action icon"
-                gradient={{ from: 'orange', to: 'yellow', deg: 180 }}
-              >
+                gradient={{ from: 'rgba(255, 85, 0, 1)', to: 'yellow', deg: 174 }}
+                >
               <BsFillBookmarkStarFill color="var(--color-accent)" size="25px"/>
             </ActionIcon>
           </Tooltip>
@@ -54,8 +71,8 @@ export function Navbar() {
                 variant="gradient"
                 size="lg"
                 aria-label="Gradient action icon"
-                gradient={{ from: 'orange', to: 'yellow', deg: 180 }}
-              >
+                gradient={{ from: 'rgba(255, 85, 0, 1)', to: 'yellow', deg: 174 }}
+                >
               <BiSolidBell color="var(--color-accent)" size="35px"/>
             </ActionIcon>
           </Tooltip>
@@ -64,32 +81,16 @@ export function Navbar() {
                 variant="gradient"
                 size="lg"
                 aria-label="Gradient action icon"
-                gradient={{ from: 'orange', to: 'yellow', deg: 180 }}
-              >
+                gradient={{ from: 'rgba(255, 85, 0, 1)', to: 'yellow', deg: 174 }}
+                >
               <MdMail color='var(--color-accent)' size ='35px'/>
             </ActionIcon>
           </Tooltip>
-          <Group>
-            <Avatar src={null} alt="no image here" color="var(--color-accent)" />
-            <Menu width={200} shadow="md">
-              <Menu.Target>
-                <Button>Toggle menu</Button>
-              </Menu.Target>
+          <LightDarkButton />
 
-              <Menu.Dropdown>
-                <Menu.Item component="a" href="https://mantine.dev">
-                  Mantine website
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={<IconExternalLink style={{ width: rem(14), height: rem(14) }} />}
-                  component="a"
-                  href="https://mantine.dev"
-                  target="_blank"
-                >
-                  External link
-                </Menu.Item>
-              </Menu.Dropdown>
-            </Menu>
+          <Group gap={0}>
+            <Avatar component="a" href="/#" src={null} alt="no image here" color="var(--color-accent)" />
+            <ButtonMenu />
           </Group>
         </Group>
       </Group>
