@@ -58,6 +58,8 @@ export function Navbar() {
         <Group ml={"var(--gap-logos)"} gap={"var(--gap-logos)"} className={styles.links} visibleFrom="lg">
           <Tooltip label="Bookmarks">
             <ActionIcon
+                component="a"
+                href="/login-register/login-register"
                 variant="gradient"
                 size="lg"
                 aria-label="Gradient action icon"
@@ -68,6 +70,8 @@ export function Navbar() {
           </Tooltip>
           <Tooltip label="Notifications">
             <ActionIcon
+                component="a"
+                href="/login-register/login-register"
                 variant="gradient"
                 size="lg"
                 aria-label="Gradient action icon"
@@ -78,6 +82,8 @@ export function Navbar() {
           </Tooltip>
           <Tooltip label="Messages">
             <ActionIcon
+                component="a"
+                href="/login-register/login-register"
                 variant="gradient"
                 size="lg"
                 aria-label="Gradient action icon"
@@ -89,7 +95,7 @@ export function Navbar() {
           <LightDarkButton />
 
           <Group gap={0}>
-            <Avatar component="a" href="/#" src={null} alt="no image here" color="var(--color-accent)" />
+            <Avatar component="a" href="/login-register/login-register" src={null} alt="no image here" color="var(--color-accent)" />
             <ButtonMenu />
           </Group>
         </Group>
