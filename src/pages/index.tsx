@@ -22,7 +22,19 @@ export default function Home() {
           Use first article card w/ image for each card and 
           Articles cards grid for filling it with data and grid layout
         </p>
-        <ArtCard />
+        <div>
+          <div className={styles.card}>
+          <ArtCard />
+          <ArtCard />
+          <ArtCard />
+          </div>
+          <br />
+          <div className={styles.card}>
+          <ArtCard />
+          <ArtCard />
+          <ArtCard />
+          </div>
+        </div>
       </main>
     </>
   );
