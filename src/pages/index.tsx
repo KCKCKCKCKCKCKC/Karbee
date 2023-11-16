@@ -2,6 +2,7 @@ import Navbar from '../components/navbar/navbar';
 import Banner from '../components/banner/banner';
 import styles from './home/home.module.css';
 import ArtCard from '../components/art-card/art-card';
+import ArtGrid from '../components/art-grid/art-grid';
 import Head from 'next/head';
  
 /* Entry point for app. Homepage */
@@ -18,10 +19,9 @@ export default function Home() {
           <Banner />
         </div>
         <h1>Explore</h1>
-        <p>Use article cards from mantine ui to construct the grid layout
-          Use first article card w/ image for each card and 
-          Articles cards grid for filling it with data and grid layout
-        </p>
+        <section>
+          <ArtGrid />
+        </section>
         <div>
           <div className={styles.card}>
           <ArtCard />

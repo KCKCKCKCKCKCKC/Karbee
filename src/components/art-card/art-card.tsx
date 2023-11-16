@@ -34,10 +34,7 @@ export function ArtCard() {
       </Text>
 
       <Text fz="sm" c="dimmed" lineClamp={4}>
-        Resident Evil Village is a direct sequel to 2017’s Resident Evil 7, but takes a very
-        different direction to its predecessor, namely the fact that this time round instead of
-        fighting against various mutated zombies, you’re now dealing with more occult enemies like
-        werewolves and vampires.
+        Add some text here lol
       </Text>
 
       <Group justify="space-between" className={classes.footer}>
