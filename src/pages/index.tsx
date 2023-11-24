@@ -4,12 +4,24 @@ import styles from './home/home.module.css';
 import ArtCard from '../components/art-card/art-card';
 import ArtGrid from '../components/art-grid/art-grid';
 import Head from 'next/head';
- 
-/* Entry point for app. Homepage */
+import Post from '@/components/post/post';
+
+/* Just to show the profile page*/
 export default function Home() {
   return (
     <>
-      <Head>
+    
+      <Navbar />
+      <Post />
+    </>
+  );
+}
+/* Entry point for app. Homepage 
+
+export default function Home() {
+  return (
+    <>
+    <Head>
         <link rel="icon" href="/icon.ico" />
         <title>Karbee</title>
       </Head>
@@ -35,7 +47,9 @@ export default function Home() {
           <ArtCard />
           </div>
         </div>
+        <Post />
       </main>
     </>
   );
 }
+*/

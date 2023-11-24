@@ -8,8 +8,7 @@ import { MdMail } from 'react-icons/md';
 import ButtonMenu from '../button-menu/button-menu';
 import LightDarkButton from '../light-dark-button/light-dark-button';
 
-export function Navbar() {
-  //const theme = useMantineTheme();
+export default function Navbar() {
 
   return (
     <header className={styles.navbar}>
@@ -104,5 +103,3 @@ export function Navbar() {
     </header>
   );
 };
-
-export default Navbar;
