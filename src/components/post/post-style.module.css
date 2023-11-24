@@ -58,3 +58,32 @@
     gap:60px;
   }
   
+  .box {
+    display: flex;
+  }
+
+  .box2 {
+    display: flex;
+    width: 150px;
+    gap:30px;
+  }
+
+  .description {
+    width: 500px;
+    height: 280px;
+    background-color: #efececf6;
+    border: 1px solid #ccccccbb;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .hashtag{
+    max-width:fit-content;
+    height:35px;
+    background-color: #ccccccbb;
+  }
+
+  .hashtags{
+    display: flex;
+    gap: 39px;
+  }
