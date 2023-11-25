@@ -3,12 +3,35 @@
 }
 
 .banner {
-    margin: 100px 0px 40px 0px;
+    margin: 100px 0px 20px 0px;
 }
 
-.card {
+.explore {
+    margin-bottom: 10px;
+    color: var(--color-accent);
+    font-family: var(--font-playfair);
+    font-weight: 590;
+}
+
+.exploreNavigation {
     display: flex;
-    gap: 25px;
+    flex-direction: column;
+}
+
+.divider {
+    width: 126px;
+    padding: 7px;
+}
+
+.pagesAndFilters {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.filters {
+    float: right;
 }
 
 /* Sizing down windows */

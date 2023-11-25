@@ -1,0 +1,25 @@
+.mainLinks {
+    margin-left: 0;
+  }
+  
+  .mainLink {
+    font-size: var(--mantine-font-size-sm);
+    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-1));
+    margin-right: var(--mantine-spacing-md);
+    font-weight: 400;
+    font-family: var(--font-inter);
+    text-align: left;
+    border-bottom: rem(2px) solid transparent;
+    transition: border-color 100ms ease, color 100ms ease;
+  
+    @mixin hover {
+      color: light-dark(var(--color-accent), var(--mantine-color-white));
+      text-decoration: none;
+    }
+  
+    &[data-active] {
+      color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+      border-bottom-color: var(--color-primary);
+      font-weight: 500;
+    }
+}
