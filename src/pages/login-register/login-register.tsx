@@ -64,8 +64,14 @@ export function LoginRegister(props: PaperProps) {
       console.log("starting register");
       const { data, error } = await supabase.auth.signUp({
         email: form.values.email,
-        password: form.values.password
-      });
+        password: form.values.password,
+        options: {
+          data: {
+            full_name: form.values.name,
+          },
+        },
+      })
+      
       if (error) {
         //handle registration error 
         console.error('Error signing up:', error.message);
@@ -73,12 +79,6 @@ export function LoginRegister(props: PaperProps) {
       } else if (data?.user){
         //handle successful registration redirect or show message
         console.log('User signed up successfully:', data.user);
-        await supabase.from('profiles').upsert([
-          {
-            id: data.user?.id, // Using optional chaining to avoid potential errors
-            full_name: form.values.name,
-          },
-        ]);
         router.push('/user-home/user-home');
       }
     } catch (error) {
