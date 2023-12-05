@@ -1,4 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 // Replace 'your_supabase_url' and 'your_supabase_key' with your actual Supabase URL and API key
 const supabaseUrl = 'https://qsuugivqyvpjsdadtboz.supabase.co';
@@ -28,6 +30,9 @@ import { TwitterButton } from './_TwitterButton';
 
 export function LoginRegister(props: PaperProps) {
   const [type, toggle] = useToggle(['login', 'register']);
+  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -68,9 +73,11 @@ export function LoginRegister(props: PaperProps) {
               if (error) {
                 //handle registration error 
                 console.error('Error signing up:', error.message);
+                setError('Error signing up: ' + error.message)
               } else {
                 //handle successful registration redirect or show message
                 console.log('User signed up successfully:', data);
+                router.push('/user-home/user-home')
               }
             } else {
               console.log("starting login")
@@ -82,15 +89,18 @@ export function LoginRegister(props: PaperProps) {
               if (error) {
                 // Handle login error
                 console.error('Error signing in:', error.message);
+                setError('Error signing in: ' + error.message)
               } else {
                 // Handle successful login, e.g., redirect or show a success message
                 console.log('User signed in successfully:', data);
+                router.push('/user-home/user-home')
               }
             }  
           } catch (error) {
             console.error('An unexpected error occurred submitting the form');
           }
         })}>
+          <div>{error && <div style={{ color: 'red' }}>{error}</div>}</div>
           <Stack>
             {type === 'register' && (
               <TextInput
