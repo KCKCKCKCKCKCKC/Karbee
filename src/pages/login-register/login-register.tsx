@@ -62,7 +62,7 @@ export function LoginRegister(props: PaperProps) {
   const handleRegistration = async () => {
     try {
       console.log("starting register");
-      let { data, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: form.values.email,
         password: form.values.password
       });
@@ -70,9 +70,15 @@ export function LoginRegister(props: PaperProps) {
         //handle registration error 
         console.error('Error signing up:', error.message);
         setError('Error signing up: ' + error.message);
-      } else {
+      } else if (data?.user){
         //handle successful registration redirect or show message
-        console.log('User signed up successfully:', data);
+        console.log('User signed up successfully:', data.user);
+        await supabase.from('profiles').upsert([
+          {
+            id: data.user?.id, // Using optional chaining to avoid potential errors
+            full_name: form.values.name,
+          },
+        ]);
         router.push('/user-home/user-home');
       }
     } catch (error) {
@@ -129,7 +135,7 @@ export function LoginRegister(props: PaperProps) {
 
         <Group grow mb="md" mt="md">
           <GoogleButton radius="xl" onClick={handleGoogleLogin}>Google</GoogleButton>
-          <TwitterButton radius="xl">Twitter</TwitterButton>
+          {/* <TwitterButton radius="xl">Twitter</TwitterButton> */}
         </Group>
 
         <Divider label="Or continue with email" labelPosition="center" my="lg" />
@@ -139,7 +145,7 @@ export function LoginRegister(props: PaperProps) {
           <Stack>
             {type === 'register' && (
               <TextInput
-                label="Name"
+                label="Full Name"
                 placeholder="Your name"
                 value={form.values.name}
                 onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
