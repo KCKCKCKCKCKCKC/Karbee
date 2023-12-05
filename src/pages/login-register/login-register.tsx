@@ -63,13 +63,7 @@ export function LoginRegister(props: PaperProps) {
               console.log("starting register")
               let { data, error } = await supabase.auth.signUp({
                 email: form.values.email,
-                password: form.values.password,
-                // options: {
-                //   emailRedirectTo: 'https://example.com/welcome'
-                // }
-                // options: {
-                //   data: {full_name: form.values.name} 
-                // }
+                password: form.values.password
               });
               if (error) {
                 //handle registration error 
