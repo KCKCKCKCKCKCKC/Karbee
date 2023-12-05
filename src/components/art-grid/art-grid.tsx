@@ -19,7 +19,7 @@ const mockdata = [
     title: 'Top 10 places to visit in Norway this summer',
     image:
       'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'user',
+    user: 'frog',
     date: 'August 18, 2022',
     tags: ['#Original ', '#fairies ', '#Ilovestudyingsomuch ', '#please ', '#help ', '#me ', '#mucho ', '#bueno ']
   },
@@ -35,7 +35,7 @@ const mockdata = [
     title: 'Hawaii beaches review: better than you think',
     image:
       'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'somerandompersonasdasddsadsaasdsad',
+    user: 'some',
     date: 'September 9, 2022',
     tags: 'kys',
   },
@@ -43,7 +43,7 @@ const mockdata = [
     title: 'Mountains at night: 12 best locations to enjoy the view',
     image:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-      user: 'somerandomperson',
+    user: 'chris',
     date: 'September 12, 2022',
     tags: 'kys',
   },
@@ -51,7 +51,7 @@ const mockdata = [
     title: 'Mountains at night: 12 best locations to enjoy the view',
     image:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-      user: 'somerandomperson',
+    user: 'comp',
     date: 'September 12, 2022',
     tags: 'kys',
   },
@@ -59,7 +59,7 @@ const mockdata = [
     title: 'Mountains at night: 12 best locations to enjoy the view',
     image:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-      user: 'somerandomperson',
+    user: 'jesus',
     date: 'September 12, 2022',
     tags: 'kys',
   },
@@ -67,7 +67,7 @@ const mockdata = [
     title: 'Mountains at night: 12 best locations to enjoy the view',
     image:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-      user: 'somerandomperson',
+    user: 'chris',
     date: 'September 12, 2022',
     tags: 'kys',
   },
@@ -90,9 +90,16 @@ export function ArtGrid() {
             radius="xl"
             mr="xs"
           />
-          <Text fz="sm" inline fw={600} className={styles.avatarText}>
-            {content.user}
-          </Text>
+          <ActionIcon
+            component="a"
+            href="/user-external/user-external"
+            variant="transparent" color="gray" aria-label="Settings"
+            size={38}
+          >
+            <Text className={styles.user}>
+              {content.user}
+            </Text>
+          </ActionIcon>
         </Center>
 
         <Group gap={5} mr={0}>
@@ -113,16 +120,16 @@ export function ArtGrid() {
       <Text c="dimmed" size="xs" mt={7}>
         {content.tags}
       </Text>
-    </Card>  ));
+    </Card>));
 
   return (
     <Container size="xl" py="sm" mx={0}>
-      <SimpleGrid 
+      <SimpleGrid
         className={styles.grid}
-        cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }} 
+        cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
         spacing="xs"
         verticalSpacing="xs"
-        >
+      >
         {posts}
       </SimpleGrid>
     </Container>

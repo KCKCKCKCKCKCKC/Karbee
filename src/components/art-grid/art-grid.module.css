@@ -1,24 +1,24 @@
 .card {
-    transition: transform 150ms ease, box-shadow 150ms ease;
-  
-    &:hover {
-      box-shadow: var(--mantine-shadow-md);
-    }
+  transition: transform 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    box-shadow: var(--mantine-shadow-md);
   }
-  
-  .title {
-    font-family: var(--font-inter);
-    font-size: medium;
-    font-weight: bold;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
+}
+
+.title {
+  font-family: var(--font-inter);
+  font-size: medium;
+  font-weight: bold;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .grid {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .rating {
@@ -44,4 +44,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.user {
+  font-size: medium;
 }
