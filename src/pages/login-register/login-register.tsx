@@ -47,6 +47,79 @@ export function LoginRegister(props: PaperProps) {
     },
   });
 
+  const handleSubmit = async () => {
+    try {
+      if (type === 'register') {
+        await handleRegistration();
+      } else {
+        await handleLogin();
+      }
+    } catch (error) {
+      console.error('An unexpected error occurred submitting the form');
+    }
+  };
+
+  const handleRegistration = async () => {
+    try {
+      console.log("starting register");
+      let { data, error } = await supabase.auth.signUp({
+        email: form.values.email,
+        password: form.values.password
+      });
+      if (error) {
+        //handle registration error 
+        console.error('Error signing up:', error.message);
+        setError('Error signing up: ' + error.message);
+      } else {
+        //handle successful registration redirect or show message
+        console.log('User signed up successfully:', data);
+        router.push('/user-home/user-home');
+      }
+    } catch (error) {
+      console.error('An unexpected error occurred during registration');
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      console.log("starting login");
+      let { data, error } = await supabase.auth.signInWithPassword({
+        email: form.values.email,
+        password: form.values.password
+      });
+
+      if (error) {
+        // Handle login error
+        console.error('Error signing in:', error.message);
+        setError('Error signing in: ' + error.message);
+      } else {
+        // Handle successful login, e.g., redirect or show a success message
+        console.log('User signed in successfully:', data);
+        router.push('/user-home/user-home');
+      }
+    } catch (error) {
+      console.error('An unexpected error occurred during login');
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'consent',
+        },
+      },
+    })
+    if (error) {
+      console.error('Google login error:', error.message);
+    } else {
+      console.log('Google login successful:', data);
+      // Redirect or handle the logged-in user as needed
+    }
+  };
+
   return (
     <Container size={420} my={40}>
       <Paper radius="md" p="xl" shadow="sm" withBorder {...props}>
@@ -55,51 +128,13 @@ export function LoginRegister(props: PaperProps) {
         </Text>
 
         <Group grow mb="md" mt="md">
-          <GoogleButton radius="xl">Google</GoogleButton>
+          <GoogleButton radius="xl" onClick={handleGoogleLogin}>Google</GoogleButton>
           <TwitterButton radius="xl">Twitter</TwitterButton>
         </Group>
 
         <Divider label="Or continue with email" labelPosition="center" my="lg" />
 
-        <form onSubmit={form.onSubmit(async () => {
-          try {
-            if (type === 'register') {
-              //Registration
-              console.log("starting register")
-              let { data, error } = await supabase.auth.signUp({
-                email: form.values.email,
-                password: form.values.password
-              });
-              if (error) {
-                //handle registration error 
-                console.error('Error signing up:', error.message);
-                setError('Error signing up: ' + error.message)
-              } else {
-                //handle successful registration redirect or show message
-                console.log('User signed up successfully:', data);
-                router.push('/user-home/user-home')
-              }
-            } else {
-              console.log("starting login")
-              let {data, error } = await supabase.auth.signInWithPassword({
-                email: form.values.email,
-                password: form.values.password
-              });
-
-              if (error) {
-                // Handle login error
-                console.error('Error signing in:', error.message);
-                setError('Error signing in: ' + error.message)
-              } else {
-                // Handle successful login, e.g., redirect or show a success message
-                console.log('User signed in successfully:', data);
-                router.push('/user-home/user-home')
-              }
-            }  
-          } catch (error) {
-            console.error('An unexpected error occurred submitting the form');
-          }
-        })}>
+        <form onSubmit={form.onSubmit(handleSubmit)}>
           <div>{error && <div style={{ color: 'red' }}>{error}</div>}</div>
           <Stack>
             {type === 'register' && (
