@@ -20,7 +20,7 @@ import {
 } from '@mantine/core';
 import styles from './user-external.module.css';
 import Navbar from '@/components/navbar/navbar';
-import Filter from '@/components/filter/filter';
+import Filter from '@/components/filter-toggle/filter/filter';
 import { IconStar } from '@tabler/icons-react';
 import { IconInfoCircle } from '@tabler/icons-react';
 import { useState } from 'react';

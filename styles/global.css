@@ -22,6 +22,10 @@
   --color-secondary: #ffae00;
   --color-tertiary: #ffedbd;
   --color-logo: #FCC419;
+
+  /* Dark Mode */
+  --color-dark-primary: #cc6200;
+  --color-dark-accent: #e6b8b8;
   
   /* Gaps */
   --gap-close: 5px;

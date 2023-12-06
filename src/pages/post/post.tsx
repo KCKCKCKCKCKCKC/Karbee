@@ -1,6 +1,7 @@
+import { Carousel } from '@mantine/carousel';
 import React from "react";
 import styles from "./post-style.module.css";
-import CommentSection from "../Comments/comment";
+import CommentSection from "../../components/Comments/comment";
 
 export function Post() {
   return (
@@ -68,6 +69,9 @@ export function Post() {
       </div>
       <br />
       <br />
+      <Carousel slideSize="70%" height={200} slideGap="md" loop withIndicators>
+      {/* ...slides */}
+    </Carousel>
     </div>
   );
 }

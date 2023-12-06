@@ -2,10 +2,12 @@ import Navbar from '../components/navbar/navbar';
 import Banner from '../components/banner/banner';
 import styles from './home/home.module.css';
 import SectionLinks from '../components/section-links/section-links';
-import Filter from '../components/filter/filter';
+import Filter from '../components/filter-toggle/filter/filter';
+import Toggle from '@/components/filter-toggle/toggle/toggle';
 import ArtGrid from '../components/art-grid/art-grid';
-import Post from '@/components/post/post';
 import { Divider } from '@mantine/core';
+import { Pagination } from '@mantine/core';
+import Footer from '@/components/footer/footer';
 
 /* Just to show the profile page*/
 export default function Home() {
@@ -22,7 +24,7 @@ export default function Home() {
           <div className={styles.pagesAndFilters}>
             <SectionLinks />
             <div className={styles.filters}>
-              <Filter />
+              <Toggle />
               <Filter />
             </div>
           </div>
@@ -30,8 +32,13 @@ export default function Home() {
         <section>
           <ArtGrid />
         </section>
-        <Post />
+        <Pagination className={styles.pagination} total={10} defaultValue={1} boundaries={1} color="var(--color-primary)" styles={{
+              control: {
+                color: "var(--color-accent)",
+              },
+            }}/>
       </main>
+      <Footer />
     </>
   );
 }

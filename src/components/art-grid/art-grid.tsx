@@ -123,7 +123,7 @@ export function ArtGrid() {
     </Card>));
 
   return (
-    <Container size="xl" py="sm" mx={0}>
+    <Container size="xl" pt="sm" pb="xl" mx={0}>
       <SimpleGrid
         className={styles.grid}
         cols={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}

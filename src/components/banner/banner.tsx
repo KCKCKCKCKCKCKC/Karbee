@@ -1,22 +1,28 @@
 import { Card, Overlay, Button, Text } from '@mantine/core';
-import classes from './banner.module.css';
+import { IconPhoto, IconArrowRight } from '@tabler/icons-react';
+import styles from './banner.module.css';
 
 export function Banner() {
   return (
-    <Card radius="md" className={classes.card}>
-      <Overlay className={classes.overlay} opacity={0.80} zIndex={0} />
+    <Card radius="md" className={styles.card}>
+      <Overlay className={styles.overlay} opacity={0.80} zIndex={0} />
 
-      <div className={classes.content}>
-        <Text size="var(--font-size-logo)" fw={700} className={classes.title}>
+      <div className={styles.content}>
+        <Text size="50px" fw={700} className={styles.title}>
           Bzzt!
         </Text>
 
-        <Text size="md" className={classes.description}>
+        <Text className={styles.description}>
           We heard you like art. We do too. Click below to start posting or scroll down to start exploring!
         </Text>
 
-        <Button className={classes.action} variant="white" color="dark" size="xs">
-          Book now
+        <Button
+        className={styles.action}
+        variant="light"
+        leftSection={<IconPhoto size={14} />}
+        rightSection={<IconArrowRight size={14} />}
+        >
+        Click Here To Start Posting
         </Button>
       </div>
     </Card>

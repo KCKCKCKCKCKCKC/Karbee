@@ -12,21 +12,20 @@
     z-index: 1;
     font-family: var(--font-worksans);
   }
-  
-  .action {
-    position: absolute;
-    bottom: var(--mantine-spacing-xl);
-    left: var(--mantine-spacing-xl);
-  }
-  
+
   .title {
+    font-family: var(--font-pacifico);
     color: var(--color-accent);
-    margin-bottom: calc(var(--mantine-spacing-xs) / 2);
+    margin-bottom: 20px;
   }
-  
+
   .description {
     color: var(--color-accent);
     max-width: 40%;
+  }
+  
+  .action {
+    margin-top: 15px;
   }
   
   .overlay {

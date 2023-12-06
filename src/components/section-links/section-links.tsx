@@ -3,11 +3,12 @@ import { Anchor, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import styles from './section-links.module.css';
 
+//    { link: '#', label: 'Following' },
+//    { link: '#', label: 'Challenges' },
+
 const mainLinks = [
     { link: '#', label: 'Latest' },
     { link: '#', label: 'Recommended' },
-    { link: '#', label: 'Following' },
-    { link: '#', label: 'Challenges' },
   ];
   
   export function SectionLinks() {
