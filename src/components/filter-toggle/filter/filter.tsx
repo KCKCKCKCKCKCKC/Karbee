@@ -1,25 +1,31 @@
 import { useDisclosure } from '@mantine/hooks';
-import { Modal, Button } from '@mantine/core';
-import { FaChevronDown } from "react-icons/fa";
-import { MdOutlineOpacity } from 'react-icons/md';
+import { Drawer, Button, rem } from '@mantine/core';
+import styles from './filter.module.css';
+import { TbFilterCog } from "react-icons/tb";
 
 function Filter() {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
-      <Modal 
-        opened={opened} 
-        onClose={close} 
-        title="Filter" centered 
-        styles={{root: { 
-            border: 0,
-            }
-        }}>
-        ADD MODAL CONTENT HERE
-      </Modal>
+      <Drawer opened={opened} onClose={close} title="Filter" position="right">
+        {
+          <div>Press escape for quick close.</div>
+        }
+      </Drawer>
 
-      <Button variant="default" rightSection={<FaChevronDown size={14} />} onClick={open}>Filter</Button>
+      <Button 
+        onClick={open} 
+        leftSection={<TbFilterCog style={{ width: rem(14), height: rem(14) }} />}
+        styles={{
+            root: {
+              backgroundColor: "var(--color-background)",
+              color: "var(--color-accent)",
+            },
+        }}
+        >
+        Filter
+      </Button>
     </>
   );
 }

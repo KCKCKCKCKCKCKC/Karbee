@@ -79,7 +79,7 @@ export function LoginRegister(props: PaperProps) {
       } else if (data?.user){
         //handle successful registration redirect or show message
         console.log('User signed up successfully:', data.user);
-        router.push('/user-home/user-home');
+        router.push('/home/logged-in-home');
       }
     } catch (error) {
       console.error('An unexpected error occurred during registration');
@@ -101,7 +101,7 @@ export function LoginRegister(props: PaperProps) {
       } else {
         // Handle successful login, e.g., redirect or show a success message
         console.log('User signed in successfully:', data);
-        router.push('/user-home/user-home');
+        router.push('/home/logged-in-home');
       }
     } catch (error) {
       console.error('An unexpected error occurred during login');

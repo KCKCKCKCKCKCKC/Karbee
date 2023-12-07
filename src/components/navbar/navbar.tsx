@@ -5,7 +5,7 @@ import { ActionIcon } from '@mantine/core';
 import { BsFillBookmarkStarFill } from 'react-icons/bs';
 import { BiSolidBell } from 'react-icons/bi';
 import { MdMail } from 'react-icons/md';
-import ButtonMenu from '../button-menu/button-menu';
+import ButtonMenu from './button-menu/button-menu';
 import LightDarkButton from '../light-dark-button/light-dark-button';
 
 export default function Navbar() {
@@ -95,7 +95,6 @@ export default function Navbar() {
 
           <Group gap={0}>
             <Avatar component="a" href="/login-register/login-register" src={null} alt="no image here" color="var(--color-accent)" />
-            <ButtonMenu />
           </Group>
         </Group>
       </Group>

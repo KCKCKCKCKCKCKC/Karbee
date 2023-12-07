@@ -1,12 +1,15 @@
-import LoggedInNavbar from '@/components/navbar/navbar-logged-in';
 import Banner from '@/components/banner/banner';
-import styles from '@/home/home.module.css';
+import styles from './home.module.css';
 import SectionLinks from '@/components/section-links/section-links';
 import Filter from '@/components/filter-toggle/filter/filter';
+import Toggle from '@/components/filter-toggle/toggle/toggle';
 import ArtGrid from '@/components/art-grid/art-grid';
 import { Divider } from '@mantine/core';
+import { Pagination } from '@mantine/core';
+import Footer from '@/components/footer/footer';
+import LoggedInNavbar from '@/components/navbar/navbar-logged-in';
 
-/* User logged in Home Page */
+/* Logged in Profile Page */
 export default function Home() {
   return (
     <>
@@ -21,7 +24,7 @@ export default function Home() {
           <div className={styles.pagesAndFilters}>
             <SectionLinks />
             <div className={styles.filters}>
-              <Filter />
+              <Toggle />
               <Filter />
             </div>
           </div>
@@ -29,7 +32,13 @@ export default function Home() {
         <section>
           <ArtGrid />
         </section>
+        <Pagination className={styles.pagination} total={10} defaultValue={1} boundaries={1} color="var(--color-primary)" styles={{
+              control: {
+                color: "var(--color-accent)",
+              },
+            }}/>
       </main>
+      <Footer />
     </>
   );
 }
