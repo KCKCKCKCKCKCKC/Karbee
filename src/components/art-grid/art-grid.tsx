@@ -1,13 +1,11 @@
-import { SimpleGrid, Container, AspectRatio } from '@mantine/core';
+import { SimpleGrid, Container, AspectRatio, BackgroundImage } from '@mantine/core';
 import { IconBookmark, IconHeart, IconShare } from '@tabler/icons-react';
 import {
   Card,
-  Image,
   Text,
   ActionIcon,
   Badge,
   Group,
-  Center,
   Avatar,
   rem,
 } from '@mantine/core';
@@ -16,60 +14,124 @@ import styles from './art-grid.module.css';
 //Replace this with real data from Supabase later on
 const mockdata = [
   {
-    title: 'Top 10 places to visit in Norway this summer',
+    title: 'Moonlight',
     image:
-      'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'frog',
-    date: 'August 18, 2022',
-    tags: ['#Original ', '#fairies ', '#Ilovestudyingsomuch ', '#please ', '#help ', '#me ', '#mucho ', '#bueno ']
+      'https://media.nga.gov/iiif/aee8484d-34b4-41b1-acc2-07499f5bbddc/full/!588,600/0/default.jpg',
+    user: 'National Gallery of Art',
+    date: 'November 18, 2023',
+    tags: ['#Original ', '#trees ', '#river ', '#please ', '#help ', '#me ', '#que ', '#suave ']
   },
   {
-    title: 'Best forests to visit in North America',
+    title: 'North American Trees',
     image:
       'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'user',
+    user: 'Insert some user here',
     date: 'August 27, 2022',
-    tags: 'kys',
+    tags: '#Add tags',
   },
   {
-    title: 'Hawaii beaches review: better than you think',
+    title: 'Snow in New York',
     image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'some',
-    date: 'September 9, 2022',
-    tags: 'kys',
+      'https://media.nga.gov/iiif/243000de-3236-4cca-b4d5-6f4fe08b5ad7/full/!588,600/0/default.jpg',
+    user: 'National Gallery of Art',
+    date: 'November 9, 2023',
+    tags: ['#Robert Henri ', '#New York'],
   },
   {
-    title: 'Mountains at night: 12 best locations to enjoy the view',
+    title: 'Blue Morning',
     image:
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'chris',
-    date: 'September 12, 2022',
-    tags: 'kys',
+      'https://media.nga.gov/iiif/acc96e3f-6b67-443a-b2af-6d6ba7d1b664/full/!588,600/0/default.jpg',
+    user: 'National Gallery of Art',
+    date: 'November 12, 2023',
+    tags: '#Add tags',
   },
   {
-    title: 'Mountains at night: 12 best locations to enjoy the view',
+    title: 'Spring Woods',
     image:
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    user: 'comp',
-    date: 'September 12, 2022',
-    tags: 'kys',
+      'https://media.nga.gov/iiif/79cb3eba-4af9-4197-87a3-d61ca03ed227/full/!588,600/0/default.jpg',
+    user: 'National Gallery of Art',
+    date: 'December 1, 2023',
+    tags: '#Add tags',
   },
   {
-    title: 'Mountains at night: 12 best locations to enjoy the view',
+    title: 'Add Title Here',
     image:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
     user: 'jesus',
     date: 'September 12, 2022',
-    tags: 'kys',
+    tags: '#Add tags',
   },
   {
-    title: 'Mountains at night: 12 best locations to enjoy the view',
+    title: 'Add Title Here',
     image:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
     user: 'chris',
     date: 'September 12, 2022',
-    tags: 'kys',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
+  },
+  {
+    title: 'Add Title Here',
+    image:
+      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+    user: 'chris',
+    date: 'September 12, 2022',
+    tags: '#Add tags',
   },
 ];
 
@@ -77,46 +139,43 @@ export function ArtGrid() {
   const posts = mockdata.map((content) => (
     <Card key={content.title} p="xs" className={styles.card}>
       <AspectRatio ratio={1750 / 1750}>
-        <Image src={content.image} radius="sm" />
+        <BackgroundImage component="a" href="/post/post" src={content.image} radius="sm" />
       </AspectRatio>
       <Text className={styles.title} mt={8}>
         {content.title}
       </Text>
-      <Group justify="space-between" mt={5} className={styles.footer}>
-        <Center>
-          <Avatar
-            src={content.image}
-            size={24}
-            radius="xl"
-            mr="xs"
-          />
-          <ActionIcon
-            component="a"
-            href="/user-external/user-external"
-            variant="transparent" color="gray" aria-label="Settings"
-            size={38}
-          >
-            <Text className={styles.user}>
-              {content.user}
-            </Text>
-          </ActionIcon>
-        </Center>
-
-        <Group gap={5} mr={0}>
-          <ActionIcon className={styles.action}>
-            <IconHeart style={{ width: rem(16), height: rem(16) }} color={"var(--color-accent)"} />
-          </ActionIcon>
-          <ActionIcon className={styles.action}>
-            <IconBookmark
-              style={{ width: rem(16), height: rem(16) }}
-              color={"var(--color-accent)"}
+      <div className={styles.avatarAndLikes}>
+        <Group justify="space-between" mt={5}>
+          <div className={styles.avatar}>
+            <Avatar
+              src={content.image}
+              size={24}
+              radius="xl"
+              mr="xs"
             />
-          </ActionIcon>
-          <ActionIcon className={styles.action}>
-            <IconShare style={{ width: rem(16), height: rem(16) }} color={"var(--color-accent)"} />
-          </ActionIcon>
+            <Text component="a" href="/user-external/user-external">
+              <Text className={styles.user}>
+                {content.user}
+              </Text>
+            </Text>
+          </div>
+
+          <Group gap={5} mr={0}>
+            <ActionIcon className={styles.action}>
+              <IconHeart style={{ width: rem(16), height: rem(16) }} color={"var(--color-accent)"} />
+            </ActionIcon>
+            <ActionIcon className={styles.action}>
+              <IconBookmark
+                style={{ width: rem(16), height: rem(16) }}
+                color={"var(--color-accent)"}
+              />
+            </ActionIcon>
+            <ActionIcon className={styles.action}>
+              <IconShare style={{ width: rem(16), height: rem(16) }} color={"var(--color-accent)"} />
+            </ActionIcon>
+          </Group>
         </Group>
-      </Group>
+      </div>
       <Text c="dimmed" size="xs" mt={7}>
         {content.tags}
       </Text>

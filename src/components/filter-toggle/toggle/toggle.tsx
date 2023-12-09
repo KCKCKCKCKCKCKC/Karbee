@@ -13,7 +13,7 @@ function Toggle() {
         <Button 
           styles={{
             root: {
-              backgroundColor: "var(--color-background)",
+              backgroundColor: 'light-dark(var(--color-background), var(--color-dark-primary))',
               color: "var(--color-accent)",
             },
           }}

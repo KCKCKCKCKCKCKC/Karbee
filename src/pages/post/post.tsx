@@ -1,11 +1,14 @@
 import { Carousel } from '@mantine/carousel';
 import React from "react";
-import styles from "./post-style.module.css";
+import styles from "./post.module.css";
 import CommentSection from "../../components/Comments/comment";
+import Navbar from "@/components/navbar/navbar";
 
 export function Post() {
   return (
-    <div className={styles.app}>
+    <>
+      <Navbar />
+      <div className={styles.app}>
       <br />
       <br />
       <div className={styles.box}>
@@ -71,8 +74,9 @@ export function Post() {
       <br />
       <Carousel slideSize="70%" height={200} slideGap="md" loop withIndicators>
       {/* ...slides */}
-    </Carousel>
+      </Carousel>
     </div>
+    </>
   );
 }
 

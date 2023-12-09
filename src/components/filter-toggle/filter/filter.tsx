@@ -15,11 +15,12 @@ function Filter() {
       </Drawer>
 
       <Button 
+        className={styles.button}
         onClick={open} 
         leftSection={<TbFilterCog style={{ width: rem(14), height: rem(14) }} />}
         styles={{
             root: {
-              backgroundColor: "var(--color-background)",
+              backgroundColor: 'light-dark(var(--color-background), var(--color-dark-primary))',
               color: "var(--color-accent)",
             },
         }}
